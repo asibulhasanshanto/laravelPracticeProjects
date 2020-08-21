@@ -15,13 +15,25 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id_form');
+            $table->foreignId('user_id_from');
             $table->foreignId('user_id_to');
             $table->string('subject');
             $table->string('body');
-            $table->boolean('read');
-            $table->boolean('deleted');
+            $table->boolean('read')->default(0);
+            $table->boolean('deleted')->default(0);
             $table->timestamps();
+
+            $table->foreign('user_id_from')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('user_id_to')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
