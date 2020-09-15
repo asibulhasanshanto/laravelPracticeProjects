@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'TestController@index');
 
 Route::resource('todo', 'App\Http\Controllers\CrudController');
+
+//Ajax Crud Laravel
+
+Route::resource('ajax-crud', 'App\Http\Controllers\AjaxController');
