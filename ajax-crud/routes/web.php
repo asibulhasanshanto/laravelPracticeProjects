@@ -15,30 +15,20 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::resource('product', 'App\Http\Controllers\ProductController');
+// Route::get('product', '');
+// Route::get('product/{product_id}', function ($product_id) {
 
-Route::get('product', function () {
-    $products = Product::all();
-    return view('ajax.index')->with('products', $products);
-});
-Route::get('/{product_id}', function ($product_id) {
-    $product = Product::find($product_id);
-    return response()->json($product);
-});
-Route::post('/product', function (Request $request) {
-    $product = Product::create($request->input());
-    return response()->json($product);
-});
-Route::put('/{product_id?}', function (Request $request, $product_id) {
-    $product = Product::find($product_id);
-    $product->name = $request->name;
-    $product->details = $request->details;
-    $product->save();
-    return response()->json($product);
-});
-Route::delete('/{product_id?}', function ($product_id) {
-    $product = Product::destroy($product_id);
-    return response()->json($product);
-});
+// });
+// Route::post('product', function (Request $request) {
+
+// });
+// Route::put('product/{product_id?}', function (Request $request, $product_id) {
+
+// });
+// Route::delete('product/{product_id?}', function ($product_id) {
+
+// });
 
 
 // Route::get('/', 'App\Http\Controllers\TestController@index');
