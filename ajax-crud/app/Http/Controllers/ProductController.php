@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('ajax.index',['products'=>$products]);
+        return view('ajax.index', ['products' => $products]);
     }
 
     /**
@@ -84,7 +84,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        $product = Product::destroy($product);
+        $product = $product->delete($product);
         return response()->json($product);
     }
 }
