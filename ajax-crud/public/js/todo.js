@@ -19,6 +19,7 @@ jQuery(document).ready(function($) {
             title: jQuery('#title').val(),
             description: jQuery('#description').val(),
         };
+
         var state = jQuery('#btn-save').val();
         var type = "POST";
         var todo_id = jQuery('#todo_id').val();
