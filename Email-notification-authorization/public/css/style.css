@@ -1,0 +1,14 @@
+h1 {
+    color: red;
+}
+
+.email {
+    width: 80%;
+    margin: auto;
+}
+
+.email-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
