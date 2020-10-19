@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\PaymentsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +24,5 @@ Route::post('email', [EmailController::class, 'store']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::get('payments/create', [PaymentsController::class, 'create'])->name('create-payment')->middleware('auth');
+Route::post('payments/create', [PaymentsController::class, 'store'])->middleware('auth');
