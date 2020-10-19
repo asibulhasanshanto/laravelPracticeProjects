@@ -14,7 +14,7 @@ class PaymentsController extends Controller
     }
     public function store()
     {
-        request()->user()->notify(new PaymentReceived()); // in this way the user model must have to use notifyable trait
+        request()->user()->notify(new PaymentReceived(500)); // in this way the user model must have to use notifyable trait
 
         // Notification::send(request()->user(), new PaymentReceived());
 
