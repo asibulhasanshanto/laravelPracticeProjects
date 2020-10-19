@@ -17,5 +17,7 @@
 
         <h1>It works again</h1>
 
+    <h2>It looks like you want to learn more about {{$topic}}</h2>
+
     </body>
 </html>

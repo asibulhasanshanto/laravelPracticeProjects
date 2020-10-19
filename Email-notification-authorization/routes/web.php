@@ -19,3 +19,7 @@ Route::get('/', function () {
 });
 Route::get('email', [EmailController::class, 'show']);
 Route::post('email', [EmailController::class, 'store']);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
