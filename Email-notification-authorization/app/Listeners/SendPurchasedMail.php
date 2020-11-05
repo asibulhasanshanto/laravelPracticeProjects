@@ -30,6 +30,7 @@ class SendPurchasedMail
     {
         $user = $event->user;
         $amount = $event->amount;
+        
         $user->notify(new PaymentReceived($amount));
     }
 }
