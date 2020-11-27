@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('emails.submitEmailForm');
+    return view('welcome');
 });
 Route::get('email', [EmailController::class, 'show']);
 Route::post('email', [EmailController::class, 'store']);
