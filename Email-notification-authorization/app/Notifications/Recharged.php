@@ -6,12 +6,10 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use Illuminate\Notifications\Messages\NexmoMessage;
 
-class PaymentReceived extends Notification
+class Recharged extends Notification
 {
     use Queueable;
-
     protected $amount;
     /**
      * Create a new notification instance.
@@ -43,10 +41,8 @@ class PaymentReceived extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('your payment was received')
-            ->greeting('hi ' . request()->user()->name)
             ->line('The introduction to the notification.')
-            ->action('sign up', url('/payments/create'))
+            ->action('Notification Action', url('/'))
             ->line('Thank you for using our application!');
     }
 
@@ -59,19 +55,7 @@ class PaymentReceived extends Notification
     public function toArray($notifiable)
     {
         return [
-            "payment amount" => $this->amount,
+            "recharge amount" => $this->amount,
         ];
-    }
-
-    /**
-     * Get the Nexmo / SMS representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return NexmoMessage
-     */
-    public function toNexmo($notifiable)
-    {
-        return (new NexmoMessage)
-            ->content('Hello, This is a test from Asibul');
     }
 }
