@@ -14,9 +14,10 @@
                     <p class="payment-status"></p>
                     <form id="paymentForm" method="post" action="{{route('payment.pay')}}">
                         @csrf
+
                       <div class="form-group">
                         <label>NAME</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter name" required="" autofocus="" value="Jhon Doe">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter name" required="" autofocus="" value="John Doe">
                       </div>
                       <div class="form-group">
                         <label>EMAIL</label>
@@ -24,7 +25,7 @@
                       </div>
                       <div class="form-group">
                         <label>CARD NUMBER</label>
-                        <input type="text" class="form-control" name="card_num" id="card_num" placeholder="Enter card number" autocomplete="off" required="" value="4111111111111111">
+                        <input type="text" class="form-control" name="card_num" id="card_num" placeholder="Enter card number" autocomplete="off" required="" value="5555555555554444">
                       </div>
                       <div class="d-flex flex-column justify-content-center align-items-center">
                         <div class="col-xs-4">
@@ -95,6 +96,7 @@
     };
 
     $(function() {
+
       // Pull in the public encryption key for our environment
       TCO.loadPubKey('17463AB7-FA18-42ED-855E-360E992C4B0A');
 
