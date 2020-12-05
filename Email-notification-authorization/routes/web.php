@@ -16,14 +16,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('payment');
 });
-Route::get('email', [EmailController::class, 'show']);
-Route::post('email', [EmailController::class, 'store']);
+Route::post('payment/pay',[PaymentsController::class,'pay'])->name('payment.pay');
+// Route::get('email', [EmailController::class, 'show']);
+// Route::post('email', [EmailController::class, 'store']);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-Route::get('payments/create', [PaymentsController::class, 'create'])->name('create-payment')->middleware('auth');
-Route::post('payments/create', [PaymentsController::class, 'store'])->middleware('auth');
-Route::post('recharge/create', [PaymentsController::class, 'recharge'])->middleware('auth');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
+// Route::get('payments/create', [PaymentsController::class, 'create'])->name('create-payment')->middleware('auth');
+// Route::post('payments/create', [PaymentsController::class, 'store'])->middleware('auth');
+// Route::post('recharge/create', [PaymentsController::class, 'recharge'])->middleware('auth');
